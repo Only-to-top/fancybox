@@ -15,7 +15,7 @@
 jQuery(function($) {
 	
   var cookieOptions = { expires: 7, path: '/' };
-  if ($.cookie('visit') == undefined) {
+  if ( $.cookie('visit') == undefined ) {
     setTimeout(function() {
 		$.cookie('visit', true, cookieOptions);
 		
