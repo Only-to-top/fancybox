@@ -13,17 +13,22 @@
 
 ```js
 jQuery(function($) {
-  
-	$.fancybox.open({
-		src: '#firstModal',
-		type: 'inline',
-		modal: true,
-	});
 	
-	$('.close_modal_no').click(function(){
-		$('#firstModal button').remove();
-		$('#firstModal div').fadeIn();
-	});
-	
-});
+  var cookieOptions = { expires: 3, path: '/' };
+  if ($.cookie('visit') == undefined) {
+    setTimeout(function() {
+		$.cookie('visit', true, cookieOptions);
+		
+		$.fancybox.open({
+			src: '#firstModal',
+			type: 'inline',
+			modal: true,
+		});
+		
+    }, 4000);
+  }
+
+ });
 ```
+
+<h4>Так же необходимо подключение jQuery.cookie.js</h4>
